@@ -1,0 +1,20 @@
+server:
+  port: 8010
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/kairos
+    username: postgres
+    password: 510161
+  jpa:
+    hibernate:
+      ddl-auto: update  # 开发用，生产改 validate
+    show-sql: true
+    generate-ddl: false
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    com.kairos: DEBUG
