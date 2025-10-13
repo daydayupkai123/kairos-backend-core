@@ -3,9 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/kairos
-    username: postgres
-    password: 510161
+    url: jdbc:postgresql://127.0.0.1:15432/kairos
+#    url: jdbc:postgresql://db:5432/kairos // docker服务使用
+    username: kairos
+    password: kairos
   jpa:
     hibernate:
       ddl-auto: update  # 开发用，生产改 validate
@@ -18,3 +19,8 @@ spring:
 logging:
   level:
     com.kairos: DEBUG
+
+# JWT
+jwt:
+  secret-key: ${JWT_SECRET:a2Fpcm9zX2Rldl91c2VyX3Bhc3N3b3JkXzEyMzQ1Njc4OQ==} # base64 {"kairos_dev_user_password_123456789"}
+  expiration: 86400000  #24 小时
