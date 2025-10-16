@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
+import org.springframework.beans.BeanUtils;
 
 /**
  * @author kaijiang
@@ -27,12 +28,12 @@ public class UserEntity {
 
     @NotBlank
     @Email
-    @Column(name = "email", columnDefinition = "varchar(255)")
+    @Column(name = "email", columnDefinition = "varchar(128)")
     @Comment(value = "邮箱")
     private String email;
 
     @NotBlank
-    @Column(name = "password", columnDefinition = "varchar(32)")
+    @Column(name = "password", columnDefinition = "varchar(255)")
     @Comment(value = "密码")
     private String password; // BCrypt 加密后存储
 
@@ -40,4 +41,9 @@ public class UserEntity {
     @Comment(value = "用户名")
     private String username;
 
+    public static UserEntity create(Object object){
+        UserEntity userEntity = new UserEntity();
+        BeanUtils.copyProperties(object, userEntity);
+        return userEntity;
+    }
 }

@@ -1,6 +1,8 @@
 package com.kairos.util;
 
 import io.jsonwebtoken.Jwts;
+import lombok.Data;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,7 @@ import java.util.Date;
  * @description
  */
 @Component
+@Data
 public class JwtUtil {
 
     private final SecretKey secretKey;

@@ -27,10 +27,14 @@ dependencies {
     runtimeOnly ("io.jsonwebtoken:jjwt-jackson:0.12.5")
 
     // lombok
-    compileOnly ("org.projectlombok:lombok:1.18.30")
+    compileOnly  ("org.projectlombok:lombok:1.18.30")
+    annotationProcessor ("org.projectlombok:lombok:1.18.30")
 
     // swagger
     implementation ("org.springdoc:springdoc-openapi-ui:1.7.0")
+
+    // redis
+    implementation ("org.springframework.boot:spring-boot-starter-data-redis")
 
     runtimeOnly ("org.postgresql:postgresql")
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
